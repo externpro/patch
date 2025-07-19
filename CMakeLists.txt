@@ -12,7 +12,7 @@ if(WIN32 AND NOT UNIX)
   ExternalProject_Add(${PROJECT_NAME}
     DOWNLOAD_EXTRACT_TIMESTAMP true
     URL https://github.com/externpro/patch/releases/download/v2.7/patch-${VER}-bin.zip
-    URL_SHA256 eb848c8b0a51f51ed9407b832a975f1d47578825c7e7c3f23e79f23e88b9693b
+    SHA256 eb848c8b0a51f51ed9407b832a975f1d47578825c7e7c3f23e79f23e88b9693b
     CONFIGURE_COMMAND ${CMAKE_COMMAND} -E copy_if_different
       <SOURCE_DIR>/patch.exe <INSTALL_DIR>/bin/patcz.exe
     BUILD_COMMAND ${CMAKE_COMMAND} -E copy_if_different
