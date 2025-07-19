@@ -26,11 +26,11 @@ if(WIN32 AND NOT UNIX)
     ""
     )
 else()
-  set(VER 2.7.5)
+  set(VER 2.7.6)
   ExternalProject_Add(${PROJECT_NAME}
     DOWNLOAD_EXTRACT_TIMESTAMP true
-    URL http://ftp.gnu.org/gnu/patch/patch-${VER}.tar.gz
-    URL_MD5 ed4d5674ef4543b4eb463db168886dc7
+    URL http://ftp.gnu.org/gnu/patch/patch-${VER}.tar.xz
+    URL_HASH SHA256=ac610bda97abe0d9f6b7c963255a11dcb196c25e337c61f94e4778d632f1d8fd
     CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR>
     BUILD_COMMAND # use default
     INSTALL_COMMAND # use default
