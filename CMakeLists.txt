@@ -1,8 +1,7 @@
-cmake_minimum_required(VERSION 3.28)
+cmake_minimum_required(VERSION 3.31)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/.devcontainer/cmake)
 include(preproject)
 project(patch VERSION 2.7)
-set(buildpro_REV 24.03)
 include(flags)
 include(GNUInstallDirs)
 set(XP_INSTALL_CMAKEDIR ${CMAKE_INSTALL_DATADIR}/cmake)
@@ -12,8 +11,8 @@ if(WIN32 AND NOT UNIX)
   set(VER 2.7.6)
   ExternalProject_Add(${PROJECT_NAME}
     DOWNLOAD_EXTRACT_TIMESTAMP true
-    URL https://github.com/smanders/externpro/releases/download/20.10.1/patch-${VER}-bin.zip
-    URL_MD5 e0d4690179d85c1cf543f52856a63db9
+    URL https://github.com/externpro/patch/releases/download/v2.7/patch-${VER}-bin.zip
+    URL_HASH SHA256=eb848c8b0a51f51ed9407b832a975f1d47578825c7e7c3f23e79f23e88b9693b
     CONFIGURE_COMMAND ${CMAKE_COMMAND} -E copy_if_different
       <SOURCE_DIR>/patch.exe <INSTALL_DIR>/bin/patcz.exe
     BUILD_COMMAND ${CMAKE_COMMAND} -E copy_if_different
