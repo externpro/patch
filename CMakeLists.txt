@@ -45,7 +45,7 @@ endif()
 if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
   string(JOIN "\n" EXT3
     "if(CMAKE_SYSTEM_NAME STREQUAL Darwin)"
-    "  find_package(Patch REQUIRED)"
+    "  find_package(Patch REQUIRED BYPASS_PROVIDER)"
     "  if(Patch_FOUND)"
     "    set(PATCH_EXE \${Patch_EXECUTABLE})"
     "  endif()"
