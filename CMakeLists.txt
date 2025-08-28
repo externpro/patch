@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.31)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/.devcontainer/cmake)
 set(CMAKE_PROJECT_TOP_LEVEL_INCLUDES xproinc)
-project(patch VERSION 2.7.6.2)
+project(patch VERSION 2.7.6.3)
 include(flags)
 include(GNUInstallDirs)
 set(XP_INSTALL_CMAKEDIR ${CMAKE_INSTALL_DATADIR}/cmake)
