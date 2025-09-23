@@ -1,14 +1,13 @@
 cmake_minimum_required(VERSION 3.31)
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_LIST_DIR}/.devcontainer/cmake)
-set(CMAKE_PROJECT_TOP_LEVEL_INCLUDES xproinc)
-project(patch VERSION 2.7.6.3)
-include(flags)
+set(CMAKE_PROJECT_TOP_LEVEL_INCLUDES .devcontainer/cmake/xproinc.cmake)
+project(patch VERSION 2.7.6)
+include(xpflags)
 include(GNUInstallDirs)
 set(XP_INSTALL_CMAKEDIR ${CMAKE_INSTALL_DATADIR}/cmake)
 include(ExternalProject)
 set_property(DIRECTORY PROPERTY "EP_BASE" ${CMAKE_BINARY_DIR}/epbase)
 if(WIN32 AND NOT UNIX)
-  set(VER 2.7.6)
+  set(VER ${CMAKE_PROJECT_VERSION})
   ExternalProject_Add(${PROJECT_NAME}
     DOWNLOAD_EXTRACT_TIMESTAMP true
     URL https://github.com/externpro/patch/releases/download/v2.7/patch-${VER}-bin.zip
@@ -26,7 +25,7 @@ if(WIN32 AND NOT UNIX)
     ""
     )
 else()
-  set(VER 2.7.6)
+  set(VER ${CMAKE_PROJECT_VERSION})
   ExternalProject_Add(${PROJECT_NAME}
     DOWNLOAD_EXTRACT_TIMESTAMP true
     URL http://ftp.gnu.org/gnu/patch/patch-${VER}.tar.xz
