@@ -34,22 +34,14 @@ else()
     CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix=<INSTALL_DIR>
     BUILD_COMMAND # use default
     INSTALL_COMMAND # use default
+    TEST_COMMAND ${CMAKE_COMMAND} -E rename
+      <INSTALL_DIR>/bin/patch <INSTALL_DIR>/bin/patcz
+    TEST_AFTER_INSTALL TRUE
     )
-  set(patchExe bin/patch)
+  set(patchExe bin/patcz)
   string(JOIN "\n" EXT4
     "set(PATCH_CMD \${PATCH_EXE})"
     "list(APPEND reqVars PATCH_CMD)"
-    ""
-    )
-endif()
-if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
-  string(JOIN "\n" EXT3
-    "if(CMAKE_SYSTEM_NAME STREQUAL Darwin)"
-    "  find_package(Patch REQUIRED BYPASS_PROVIDER)"
-    "  if(Patch_FOUND)"
-    "    set(PATCH_EXE \${Patch_EXECUTABLE})"
-    "  endif()"
-    "endif()"
     ""
     )
 endif()
