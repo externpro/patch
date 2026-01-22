@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.31)
 set(CMAKE_PROJECT_TOP_LEVEL_INCLUDES .devcontainer/cmake/xproinc.cmake)
 project(patch VERSION 2.7.6)
-set(XP_INSTALL_CMAKEDIR ${CMAKE_INSTALL_DATADIR}/cmake)
 include(ExternalProject)
 set_property(DIRECTORY PROPERTY "EP_BASE" ${CMAKE_BINARY_DIR}/epbase)
 if(WIN32 AND NOT UNIX)
@@ -42,6 +41,12 @@ else()
     ""
     )
 endif()
-xpPackageDevel(EXE_PATH ${patchExe})
+xpExternPackage(
+  EXE_PATH ${patchExe}
+  BASE v0 XPDIFF "bin(msw), native(unix)"
+  WEB "https://savannah.gnu.org/projects/patch/" UPSTREAM "git.savannah.gnu.org/cgit/patch.git"
+  DESC "takes a patch file containing a difference listing produced by the diff program and applies those differences to one or more original files, producing patched versions"
+  LICENSE "[GPL-3.0](https://savannah.gnu.org/projects/patch/ 'GNU General Public License v3 or later')"
+  )
 ExternalProject_Get_Property(${PROJECT_NAME} INSTALL_DIR)
 install(DIRECTORY ${INSTALL_DIR}/ DESTINATION . USE_SOURCE_PERMISSIONS)
