@@ -46,7 +46,7 @@ xpExternPackage(
   BASE v0 XPDIFF "bin(msw), native(unix)"
   WEB "https://savannah.gnu.org/projects/patch/" UPSTREAM "git.savannah.gnu.org/cgit/patch.git"
   DESC "takes a patch file containing a difference listing produced by the diff program and applies those differences to one or more original files, producing patched versions"
-  LICENSE "[GPL-3.0](https://savannah.gnu.org/projects/patch/ 'GNU General Public License v3 or later')"
+  LICENSE "[GPL-3.0-or-later](https://savannah.gnu.org/projects/patch/ 'GNU General Public License v3 or later')"
   )
 ExternalProject_Get_Property(${PROJECT_NAME} INSTALL_DIR)
 install(DIRECTORY ${INSTALL_DIR}/ DESTINATION . USE_SOURCE_PERMISSIONS)
